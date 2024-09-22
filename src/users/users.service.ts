@@ -22,9 +22,14 @@ export class UsersService {
     return hash;
   }
 
-  async create(email: string, password: string, name: string) {
-    const hasPassword = this.getHashPassword(password);
-    let user = await this.userModel.create({ email: email, password: hasPassword, name: name})
+  async create(createUserDto: CreateUserDto){
+    const hasPassword = this.getHashPassword(createUserDto.password);
+    
+    let user = await this.userModel.create({ 
+      email: createUserDto.email, 
+      password: hasPassword, 
+      name: createUserDto.name
+    })
     return user;
   }
 
