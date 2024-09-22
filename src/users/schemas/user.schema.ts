@@ -21,6 +21,9 @@ export class User {
   age: number;
 
   @Prop()
+  address: string;
+
+  @Prop()
   createdAt: Date;
 
   @Prop()
