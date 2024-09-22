@@ -6,3 +6,8 @@
 npm i --save-exact @nestjs/ejs@3.1.9
 npm i --save-exact @nestjs/mongoose@9.2.2 mongoose@7.1.0
 npm i --save @nestjs/config@2.3.1
+npm i --save-exact bcryptjs@2.4.3
+npm i --save-dev @types/bcryptjs@2.4.2
+
+plain text: chu nhin bang mat thuong
+hash: tao chuoi ky tu, doc khong hieu
