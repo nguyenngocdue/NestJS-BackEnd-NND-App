@@ -7,5 +7,11 @@ export class AppController {
 
   @Get() /// => api (restful api)
   @Render("home")
-  getHello() {}
+  handleHomePage() {
+    const message = this.appService.getHello();
+
+    return {
+      message: message
+    }
+  }
 }
