@@ -13,7 +13,13 @@ npm i --save-exact @nestjs/passport@9.0.3
 npm i --save-exact passport@0.6.0
 npm i --save-exact passport-local@1.0.0
 
-+ JWT
+#39
+npm install --save-exact @nestjs/jwt@10.0.3 passport-jwt@4.0.1
+npm install --save-dev @types/passport-jwt
 
+
+
+
+-----------------------------------------
 plain text: chu nhin bang mat thuong
 hash: tao chuoi ky tu, doc khong hieu
