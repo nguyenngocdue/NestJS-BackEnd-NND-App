@@ -21,9 +21,14 @@ npm i --save-dev @types/ms
 
 #48
 npm i soft-delete-plugin-mongoose@1.0.15
+
+#49
 npm i --save-exact api-query-params@5.4.0
 
+#50
+git clone https://github.com/haryphamdev/react-for-nest
 
+#52
 -----------------------------------------
 plain text: chu nhin bang mat thuong
 hash: tao chuoi ky tu, doc khong hieu
