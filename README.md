@@ -19,7 +19,8 @@ npm install --save-dev @types/passport-jwt
 npm i --save-exact ms@2.1.3
 npm i --save-dev @types/ms
 
-
+#48
+npm i soft-delete-plugin-mongoose@1.0.15
 
 
 
