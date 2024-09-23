@@ -21,7 +21,7 @@ npm i --save-dev @types/ms
 
 #48
 npm i soft-delete-plugin-mongoose@1.0.15
-
+npm i --save-exact api-query-params@5.4.0
 
 
 -----------------------------------------
