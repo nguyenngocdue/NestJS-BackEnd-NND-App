@@ -16,6 +16,9 @@ npm i --save-exact passport-local@1.0.0
 #39
 npm install --save-exact @nestjs/jwt@10.0.3 passport-jwt@4.0.1
 npm install --save-dev @types/passport-jwt
+npm i --save-exact ms@2.1.3
+npm i --save-dev @types/ms
+
 
 
 
