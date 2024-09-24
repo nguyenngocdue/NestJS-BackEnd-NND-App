@@ -10,4 +10,5 @@ export class CreateCompanyDto {
 
     @IsNotEmpty(({message: "Description isn't empty"}))
     description: string;
+
 }
