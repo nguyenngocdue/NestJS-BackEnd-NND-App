@@ -1,26 +1,43 @@
 import { Injectable } from '@nestjs/common';
 import { CreateCompanyDto } from './dto/create-company.dto';
 import { UpdateCompanyDto } from './dto/update-company.dto';
+import { Company, companyDocument } from './schemas/company.schema';
+import { InjectModel } from '@nestjs/mongoose';
+import { SoftDeleteModel } from 'soft-delete-plugin-mongoose';
+import mongoose from 'mongoose';
 
 @Injectable()
 export class CompaniesService {
-  create(createCompanyDto: CreateCompanyDto) {
-    return 'This action adds a new company';
+
+  constructor (
+    @InjectModel(Company.name)
+    private companyModel : SoftDeleteModel<companyDocument>
+  ) {
+
   }
 
+  async create(createCompanyDto : CreateCompanyDto) {
+    let company = await this.companyModel.create({...createCompanyDto});
+    return company;
+  }
+
+  findOne(id : string) {
+    if (!mongoose.Types.ObjectId.isValid(id)) return 'Not found company'
+    return this.companyModel.findOne({_id : id})
+  }
+  
   findAll() {
-    return `This action returns all companies`;
+    return this.companyModel.find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} company`;
+  remove(id : string) {
+    return this.companyModel.softDelete({_id: id});
   }
 
-  update(id: number, updateCompanyDto: UpdateCompanyDto) {
-    return `This action updates a #${id} company`;
+  async update(updateCompanyDto: UpdateCompanyDto) {
+
+    return await this.companyModel.updateOne({_id: updateCompanyDto._id}, {...updateCompanyDto});
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} company`;
-  }
+
 }
