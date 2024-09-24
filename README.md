@@ -29,6 +29,9 @@ npm i --save-exact api-query-params@5.4.0
 git clone https://github.com/haryphamdev/react-for-nest
 
 #52
+
+#53: 
+
 -----------------------------------------
 plain text: chu nhin bang mat thuong
 hash: tao chuoi ky tu, doc khong hieu
