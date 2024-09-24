@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
+import { RegisterUserDto } from 'src/users/dto/create-user.dto';
 import { IUser } from 'src/users/users.interface';
 import { UsersService } from 'src/users/users.service';
 
@@ -38,5 +39,18 @@ export class AuthService {
           email,
           role,
         };
-      }
+    }
+
+    async create(registerUserDto: RegisterUserDto){
+        const hashPassword =   this.usersService.getHashPassword(registerUserDto.password);
+        let user = await this.usersService.getModel().create({
+            name: registerUserDto.name,
+            email: registerUserDto.email,
+            password: hashPassword,
+            age: registerUserDto.age,
+            gender: registerUserDto.gender,
+            address: registerUserDto.address,
+        })
+        return user;
+    }
 }
