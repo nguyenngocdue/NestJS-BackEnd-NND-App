@@ -36,12 +36,26 @@ export class CompaniesService {
     return this.companyModel.find();
   }
 
-  remove(id : string) {
-    return this.companyModel.softDelete({_id: id});
+  async remove(id : string, user: IUser) {
+    const delResponse = await this.companyModel.softDelete({_id : id});
+    if (delResponse.deleted > 0) {
+      await this.companyModel.updateOne(
+        {_id : id},
+        {
+          $set: {
+            deletedBy: {
+              _id: user._id,
+              email: user.email
+            }
+          }
+        }
+      )
+      return "Item successfully deleted";
+    }
+    return 'Delete item failed';
   }
 
   async update(updateCompanyDto: UpdateCompanyDto) {
-
     return await this.companyModel.updateOne({_id: updateCompanyDto._id}, {...updateCompanyDto});
   }
 

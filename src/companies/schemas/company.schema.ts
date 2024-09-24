@@ -21,6 +21,9 @@ export class Company {
     updatedAt: Date
 
     @Prop()
+    deletedAt: Date
+
+    @Prop()
     isDeleted: boolean
 
     @Prop({type : Object})
