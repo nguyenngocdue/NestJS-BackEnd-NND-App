@@ -3,6 +3,11 @@ import { createParamDecorator, ExecutionContext, SetMetadata } from '@nestjs/com
 export const IS_PUBLIC_KEY = 'isPublic';
 export const Public = () => SetMetadata(IS_PUBLIC_KEY, true); // pass metadata to functions, requests
 
+export const RESPONSE_MESSAGE = 'response_message';
+export const ResponseMessage = (message: string) => 
+  SetMetadata(RESPONSE_MESSAGE, message); // pass metadata to functions, requests
+
+
 export const User = createParamDecorator(
     (data: string, ctx: ExecutionContext) => {
       const request = ctx.switchToHttp().getRequest();
